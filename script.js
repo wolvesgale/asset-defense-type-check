@@ -4,9 +4,9 @@ const AD_TEXT = '当サイトには広告・アフィリエイトリンクが含
 const CTA_MAP = {
   fp: { label: '無料FP相談で家計を整理する', url: 'https://px.a8.net/svt/ejp?a8mat=4B1HTJ+3R5F3M+5MAS+5YJRM' },
   toshell: { label: '無料の不動産投資相談で確認する', url: 'https://px.a8.net/svt/ejp?a8mat=4B1EPK+2HWH4I+20NK+ZRQ0X' },
-  dmm: { label: 'DMM株で投資の選択肢を確認する', url: 'DMM_LINK_HERE' },
+  dmm: { label: '株式投資・NISAの選択肢を確認する', url: 'https://px.a8.net/svt/ejp?a8mat=4B1EPK+3VBGC2+1WP2+15QHIA' },
   amazon: { label: 'Amazon書籍で学ぶ', url: 'https://amzn.to/4eqEm4Y' },
-  note: { label: 'noteで資産防衛の考え方を読む', url: 'https://note.com/dreamrize' },
+  note: { label: '診断結果の考え方をnoteで読む', url: 'https://note.com/dreamrize' },
   youtube: { label: 'YouTubeで補足情報を見る', url: 'https://www.youtube.com/@dreamdragon0512' }
 };
 
@@ -30,18 +30,13 @@ document.getElementById('disclaimer-result').textContent = DISCLAIMER;
 document.getElementById('disclaimer-footer').textContent = DISCLAIMER;
 
 let latest = null;
-
-function decideType(scores) {
-  const priority = ['guard', 'learn', 'balance', 'growth'];
-  return priority.reduce((best, t) => (scores[t] > scores[best] ? t : best), 'guard');
-}
+const decideType = (scores) => ['guard', 'learn', 'balance', 'growth'].reduce((best, t) => (scores[t] > scores[best] ? t : best), 'guard');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   err.textContent = '';
   const scores = { guard: 0, balance: 0, learn: 0, growth: 0 };
   const answers = [];
-
   for (let i = 1; i <= 7; i++) {
     const picked = form.querySelector(`input[name="q${i}"]:checked`);
     if (!picked) {
@@ -55,7 +50,6 @@ form.addEventListener('submit', (e) => {
   const type = decideType(scores);
   const data = RESULTS[type];
   latest = { type, data, answers };
-
   resultCard.className = `type-${type}`;
   resultCard.innerHTML = `
     <span class="badge">${data.badge}</span>
@@ -63,12 +57,13 @@ form.addEventListener('submit', (e) => {
     <p>${data.description}</p>
     <p><strong>あなたの状態：</strong>${data.status}</p>
     <h4>おすすめアクション</h4>
-    <ol>${data.actions.map(a => `<li>${a}</li>`).join('')}</ol>
+    <ul class="result-actions">${data.actions.map((a) => `<li>${a}</li>`).join('')}</ul>
   `;
 
   ctaList.innerHTML = data.ctas.map((key, idx) => {
     const cta = CTA_MAP[key];
-    return `<a class="cta-btn ${idx === 0 ? '' : 'sub'}" href="${cta.url}" target="_blank" rel="noopener noreferrer">${idx === 0 ? '主CTA：' : 'サブCTA：'}${cta.label}</a>`;
+    const kind = idx === 0 ? 'main' : 'sub';
+    return `<a class="cta-btn ${kind}" href="${cta.url}" target="_blank" rel="noopener noreferrer">${idx === 0 ? '主CTA：' : 'サブCTA：'}${cta.label}</a>`;
   }).join('');
 
   resultSection.classList.remove('hidden');
