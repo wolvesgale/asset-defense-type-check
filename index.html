@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>あなたに合う資産防衛タイプ診断</title>
+  <meta name="description" content="家計の守り方、増やし方、相談すべきタイミングを5分で整理。あなたに合う資産防衛タイプ診断で次のアクションを明確にします。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="あなたに合う資産防衛タイプ診断" />
+  <meta property="og:description" content="家計の守り方、増やし方、相談すべきタイミングを5分で整理" />
+  <meta property="og:image" content="https://example.com/ogp-placeholder.jpg" />
+  <meta property="og:locale" content="ja_JP" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero card">
+    <p class="kicker">資産防衛チェック</p>
+    <h1>あなたに合う資産防衛タイプ診断</h1>
+    <p class="subcopy">家計の守り方、増やし方、相談すべきタイミングを5分で整理</p>
+    <p>金利上昇、物価高、将来資金、老後資金。なんとなく不安はあるけれど、何から始めればいいか分からない。</p>
+    <p>この診断では、あなたの家計状況・投資経験・リスク許容度・将来不安に応じて、今取るべき資産防衛アクションを整理します。</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>診断について</h2>
+      <p>7つの質問に答えるだけで、あなたの現状に合う「守り」「学習」「比較」「実践」の優先度を整理できます。結果は4タイプで表示され、無理のない次アクションに分岐します。</p>
+    </section>
+
+    <section class="card" id="diagnosis-section">
+      <h2>7問の診断フォーム</h2>
+      <form id="diagnosis-form" novalidate>
+        <div id="form-error" class="error" aria-live="polite"></div>
+
+        <fieldset>
+          <legend>Q1. 今いちばん気になっていることは何ですか？</legend>
+          <label><input type="radio" name="q1" value="毎月の家計や固定費を見直したい" data-type="guard">毎月の家計や固定費を見直したい</label>
+          <label><input type="radio" name="q1" value="守りながら資産形成も考えたい" data-type="balance">守りながら資産形成も考えたい</label>
+          <label><input type="radio" name="q1" value="投資や資産形成の基礎を学びたい" data-type="learn">投資や資産形成の基礎を学びたい</label>
+          <label><input type="radio" name="q1" value="具体的に投資を始める選択肢を知りたい" data-type="growth">具体的に投資を始める選択肢を知りたい</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Q2. 生活防衛資金はどれくらいありますか？</legend>
+          <label><input type="radio" name="q2" value="ほとんどない" data-type="guard">ほとんどない</label>
+          <label><input type="radio" name="q2" value="1〜3か月分くらい" data-type="guard">1〜3か月分くらい</label>
+          <label><input type="radio" name="q2" value="3〜6か月分くらい" data-type="balance">3〜6か月分くらい</label>
+          <label><input type="radio" name="q2" value="6か月分以上ある" data-type="growth">6か月分以上ある</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Q3. 投資経験について最も近いものは？</legend>
+          <label><input type="radio" name="q3" value="ほとんどない" data-type="learn">ほとんどない</label>
+          <label><input type="radio" name="q3" value="NISAや投資信託を少し調べたことがある" data-type="learn">NISAや投資信託を少し調べたことがある</label>
+          <label><input type="radio" name="q3" value="少額で始めている" data-type="balance">少額で始めている</label>
+          <label><input type="radio" name="q3" value="ある程度、自分で判断して運用している" data-type="growth">ある程度、自分で判断して運用している</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Q4. リスクに対する考え方は？</legend>
+          <label><input type="radio" name="q4" value="元本割れはできるだけ避けたい" data-type="guard">元本割れはできるだけ避けたい</label>
+          <label><input type="radio" name="q4" value="少額なら試してもよい" data-type="learn">少額なら試してもよい</label>
+          <label><input type="radio" name="q4" value="リスクを理解したうえで分散したい" data-type="balance">リスクを理解したうえで分散したい</label>
+          <label><input type="radio" name="q4" value="余裕資金でリターンも狙いたい" data-type="growth">余裕資金でリターンも狙いたい</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Q5. 将来に向けて気になるテーマは？</legend>
+          <label><input type="radio" name="q5" value="保険、住宅ローン、固定費、家計管理" data-type="guard">保険、住宅ローン、固定費、家計管理</label>
+          <label><input type="radio" name="q5" value="老後資金、教育費、資産形成の全体設計" data-type="balance">老後資金、教育費、資産形成の全体設計</label>
+          <label><input type="radio" name="q5" value="NISA、株、投資信託などの基礎知識" data-type="learn">NISA、株、投資信託などの基礎知識</label>
+          <label><input type="radio" name="q5" value="株式投資や具体的な運用手段" data-type="growth">株式投資や具体的な運用手段</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Q6. 不動産投資についてどう感じますか？</legend>
+          <label><input type="radio" name="q6" value="まだよく分からないので不安が大きい" data-type="learn">まだよく分からないので不安が大きい</label>
+          <label><input type="radio" name="q6" value="節税や資産保全の観点で少し気になる" data-type="balance">節税や資産保全の観点で少し気になる</label>
+          <label><input type="radio" name="q6" value="相談して仕組みだけ確認してみたい" data-type="balance">相談して仕組みだけ確認してみたい</label>
+          <label><input type="radio" name="q6" value="今はあまり関心がない" data-type="guard">今はあまり関心がない</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Q7. 次に取りたい行動に近いものは？</legend>
+          <label><input type="radio" name="q7" value="家計や保険、ローンを誰かに整理してほしい" data-type="guard">家計や保険、ローンを誰かに整理してほしい</label>
+          <label><input type="radio" name="q7" value="守りと増やす選択肢を相談して比較したい" data-type="balance">守りと増やす選択肢を相談して比較したい</label>
+          <label><input type="radio" name="q7" value="まず記事や動画、本で学びたい" data-type="learn">まず記事や動画、本で学びたい</label>
+          <label><input type="radio" name="q7" value="証券口座や投資サービスも検討したい" data-type="growth">証券口座や投資サービスも検討したい</label>
+        </fieldset>
+
+        <button class="primary-btn" type="submit">診断結果を見る</button>
+      </form>
+    </section>
+
+    <section class="card hidden" id="result-section">
+      <h2>診断結果</h2>
+      <div id="result-card"></div>
+      <button id="save-result" class="secondary-btn" type="button">診断結果を保存する</button>
+      <p class="ad-label">当サイトには広告・アフィリエイトリンクが含まれます。</p>
+      <p class="disclaimer" id="disclaimer-result"></p>
+    </section>
+
+    <section class="card hidden" id="cta-section">
+      <h2>あなたへの次アクション</h2>
+      <div id="cta-list" class="cta-list"></div>
+    </section>
+
+    <section class="card hidden" id="learning-section">
+      <h2>学習導線</h2>
+      <p>迷ったときは、まずnote・YouTube・書籍で基礎知識を確認し、必要に応じて相談導線へ進んでください。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="ad-label">当サイトには広告・アフィリエイトリンクが含まれます。</p>
+    <p class="disclaimer" id="disclaimer-footer"></p>
+    <p><a href="privacy.html">プライバシーポリシー</a></p>
+    <p>&copy; 株式会社egg</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
