@@ -15,19 +15,25 @@
 <body>
   <header class="hero card">
     <div class="hero-glow"></div>
-    <p class="kicker">資産防衛チェック</p>
-    <h1>あなたに合う資産防衛タイプ診断</h1>
-    <p class="subcopy">家計の守り方、増やし方、相談すべきタイミングを5分で整理</p>
-    <p>金利上昇、物価高、将来資金、老後資金。なんとなく不安はあるけれど、何から始めればいいか分からない。</p>
-    <p>この診断では、あなたの家計状況・投資経験・リスク許容度・将来不安に応じて、今取るべき資産防衛アクションを整理します。</p>
-    <div class="mini-types">
-      <div class="mini-type">守り</div>
-      <div class="mini-type">学習</div>
-      <div class="mini-type">比較</div>
-      <div class="mini-type">実践</div>
-    </div>
-    <div class="flow-visual">
-      <span>家計の守り</span><span>→</span><span>学習</span><span>→</span><span>比較</span><span>→</span><span>実践</span>
+    <div class="hero-layout">
+      <div>
+        <p class="kicker">資産防衛チェック</p>
+        <h1>あなたに合う資産防衛タイプ診断</h1>
+        <p class="subcopy">家計の守り方、増やし方、相談すべきタイミングを5分で整理</p>
+        <p>金利上昇、物価高、将来資金、老後資金。なんとなく不安はあるけれど、何から始めればいいか分からない。</p>
+        <p>この診断では、あなたの家計状況・投資経験・リスク許容度・将来不安に応じて、今取るべき資産防衛アクションを整理します。</p>
+        <div class="mini-types">
+          <div class="mini-type">守る</div><div class="mini-type">学ぶ</div><div class="mini-type">比較</div><div class="mini-type">実践</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="資産防衛ビジュアル">
+        <div class="dashboard-card">
+          <div class="line-chart"><span></span><span></span><span></span><span></span></div>
+          <div class="bars"><i></i><i></i><i></i><i></i></div>
+          <div class="coins"><b></b><b></b><b></b></div>
+          <div class="shield"></div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -47,32 +53,12 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>図解2：資産形成は“守り”から始める</h2>
-      <ol class="step-list">
-        <li>Step 1：家計を見える化</li>
-        <li>Step 2：生活防衛資金を確保</li>
-        <li>Step 3：学習して判断軸を作る</li>
-        <li>Step 4：少額・分散・長期で実践</li>
-      </ol>
-    </section>
-
-    <section class="card">
-      <h2>図解3：タイプ別 次に取るべき行動</h2>
-      <div class="action-rows">
-        <p><strong>守り優先型</strong><span>→ FP相談</span></p>
-        <p><strong>バランス型</strong><span>→ 不動産投資相談</span></p>
-        <p><strong>学習優先型</strong><span>→ note・本・YouTube</span></p>
-        <p><strong>余力あり型</strong><span>→ 株式投資・NISAの検討</span></p>
-      </div>
-    </section>
-
     <section class="card" id="diagnosis-section">
       <h2>7問の診断フォーム</h2>
       <form id="diagnosis-form" novalidate>
         <div id="form-error" class="error" aria-live="polite"></div>
 
-        <fieldset> <legend>Q1. 今いちばん気になっていることは何ですか？</legend>
+        <fieldset><legend>Q1. 今いちばん気になっていることは何ですか？</legend>
           <label><input type="radio" name="q1" value="毎月の家計や固定費を見直したい" data-type="guard"><span>毎月の家計や固定費を見直したい</span></label>
           <label><input type="radio" name="q1" value="守りながら資産形成も考えたい" data-type="balance"><span>守りながら資産形成も考えたい</span></label>
           <label><input type="radio" name="q1" value="投資や資産形成の基礎を学びたい" data-type="learn"><span>投資や資産形成の基礎を学びたい</span></label>

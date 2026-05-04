@@ -35,12 +35,14 @@ const decideType = (scores) => ['guard', 'learn', 'balance', 'growth'].reduce((b
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   err.textContent = '';
+  err.classList.remove('show');
   const scores = { guard: 0, balance: 0, learn: 0, growth: 0 };
   const answers = [];
   for (let i = 1; i <= 7; i++) {
     const picked = form.querySelector(`input[name="q${i}"]:checked`);
     if (!picked) {
       err.textContent = '未回答の質問があります。7問すべてに回答してください。';
+      err.classList.add('show');
       return;
     }
     scores[picked.dataset.type] += 1;
@@ -75,6 +77,7 @@ form.addEventListener('submit', (e) => {
 saveBtn.addEventListener('click', () => {
   if (!latest) {
     err.textContent = '先に診断を実行してください。';
+    err.classList.add('show');
     return;
   }
   const now = new Date();
